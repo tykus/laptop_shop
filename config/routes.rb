@@ -1,6 +1,8 @@
 LaptopShop::Application.routes.draw do
-  get "users/new"
+  resources :line_items
+  resources :carts
 
+  get "users/new"
   get "welcome/home"
   get "welcome/thank_you"
   get "welcome/register"
@@ -11,6 +13,7 @@ LaptopShop::Application.routes.draw do
 
   match '/login' => "sessions#new", :as => "login"
   match '/logout' => "sessions#destroy", :as => "logout"
+  match '/your_cart' => "carts#your_cart", :as => "your_cart"
 
 
   # The priority is based upon order of creation:
